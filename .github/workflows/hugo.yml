@@ -19,9 +19,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 0.126.3
+          hugo-version: 0.152.2
           # hugo extend or not
-          extended: false
+          extended: true
 
       - name: Build
         run: hugo --minify
@@ -30,8 +30,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           # github_token: ${{ secrets.GITHUB_TOKEN }} # For publishing to the same repository as the source, not for a different repository
-          personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }}
-          external_repository: <Github-user-name>/<Github-user-name>.github.io # Set the target repository
+          personal_token: ${{ secrets.MYHUGO }}
+          external_repository: angelbaba/angelbaba.github.io # Set the target repository
           publish_dir: ./public
           publish_branch: main # Set the target branch
           cname: xxx.com # If you have a custom domain
